@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>Switching basemaps</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+
+    <!-- Load Esri Leaflet from CDN -->
+    <script src="https://unpkg.com/esri-leaflet@2.5.3/dist/esri-leaflet.js"
+        integrity="sha512-K0Vddb4QdnVOAuPJBHkgrua+/A9Moyv8AQEWi0xndQ+fqbRfAFd47z4A9u1AW/spLO0gEaiE1z98PK1gl5mC5Q=="
+        crossorigin=""></script>
+
+    <link rel="stylesheet" href="css/mainmap.css" />
+
+    <!-- Load Leaflet from CDN-->
+    <link rel="stylesheet" href="css/leaflet.css" />
+
+</head>
+
+<body>
+    <div class="cal-hover">
+        <div class="sub-cal">
+            <div jstcache="0">
+                <div jstcache="117" class="place-card place-card-large">
+                    <div class="place-desc-large">
+                        <div jstcache="36" class="place-name" jsan="7.place-name">350 5th Ave</div>
+                        <div jstcache="37" class="address" jsan="7.address">350 5th Ave, New York, NY 10118, USA</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="map"></div>
+
+    <div id="basemaps-wrapper" class="leaflet-bar">
+        <label for="location">Zoom to Location:</label>
+        <select onchange="ShowCoor(this)" name="location" id="locationfilter">
+            <option value="109.34,-0.033">All Locations<options>
+        </select>
+
+        <label for="location">Select Basemaps:</label>
+        <select name="basemaps" id="basemaps">
+            <option value="Topographic">Topographic<options>
+            <option value="Streets">Streets</option>
+            <option value="NationalGeographic">National Geographic<options>
+            <option value="Oceans">Oceans<options>
+            <option value="Gray">Gray<options>
+            <option value="DarkGray">Dark Gray<options>
+            <option value="Imagery">Imagery<options>
+            <option value="ShadedRelief">Shaded Relief<options>
+        </select>
+    </div>
+
+    <script src="js/basemap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="js/loadmap.js"></script>
+
+</body>
+
+</html>
