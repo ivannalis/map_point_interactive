@@ -44,16 +44,17 @@ $.when(file).done(function () {
 
 function ShowCoor(s) {
     let flyto = []
-    let coor = (s[s.selectedIndex].value).split(",").map(a => { return parseFloat(a) })
 
-    flyto.push(coor[1])
-    flyto.push(coor[0])
+   
 
-    if(flyto[0]){
-        map.flyTo(flyto[0], 13);
+    if(s[s.selectedIndex].id === 'default'){
+        map.setView([
+            -0.033, 109.34
+        ], 13);
     } else {
+        let coor = (s[s.selectedIndex].value).split(",").map(a => { return parseFloat(a) })
+        flyto.push(coor[1])
+        flyto.push(coor[0])
         map.flyTo(flyto, 17);
     }
-    
-
 }
