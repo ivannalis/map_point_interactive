@@ -1,5 +1,14 @@
 const GEOJSON_PATH = 'assets/geojson/shop_address.geojson'
 
+var serviceIcon = L.icon({
+    iconUrl: 'assets/geojson/placeholder.png',
+    iconSize: [25, 25],
+    shadowSize: [0, 0],
+    iconAnchor: [10, 10],
+    shadowAnchor: [0, 0],
+    popupAnchor: [-10, -10]
+   });
+
 let file = $.ajax({
     url: GEOJSON_PATH,
     dataType: "json",
@@ -37,16 +46,17 @@ $.when(file).done(function () {
                 out.push(key + ": " + f.properties[key]);
             }
             l.bindPopup(out.join("<br />"));
+
         }
     }
-    let layers = L.geoJSON(layer, { onEachFeature: oneach }).addTo(map)
+    let layers = L.geoJSON(layer, { onEachFeature: oneach,pointToLayer: function (feature, latlng) {
+        let marker = L.marker(latlng,{icon: serviceIcon});
+        return marker;
+    } }).addTo(map)
 })
 
 function ShowCoor(s) {
     let flyto = []
-
-   
-
     if(s[s.selectedIndex].id === 'default'){
         map.setView([
             -0.033, 109.34
